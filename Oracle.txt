@@ -1,0 +1,190 @@
+CREATE TABLE CUSTOMER
+(
+     CUSTOMERID INTEGER,
+     CUSTOMERNAME VARCHAR2(20),
+     CUSTOMERADDRESS VARCHAR(20),
+     BILLAMOUNT INTEGER
+)
+
+INSERT INTO CUSTOMER VALUES(101,'JAY','PUNE',6200);
+
+INSERT INTO CUSTOMER VALUES(102,'YASH','THANE',630);
+
+INSERT INTO CUSTOMER VALUES(103,'ROHAN','BBSR',600);
+
+INSERT INTO CUSTOMER VALUES(104,'RAJ','BANGALORE',620);
+
+SELECT * FROM CUSTOMER;
+
+DESC CUSTOMER;
+SELECT CUSTOMERNAME,BILLAMOUNT FROM CUSTOMER;
+SELECT DISTINCT CUSTOMERADDRESS FROM CUSTOMER;
+SELECT CUSTOMERNAME,BILLAMOUNT,BILLAMOUNT+10 AS NEWBILL FROM CUSTOMER;
+
+SELECT 'CUSTOMERNAME ' || CUSTOMERNAME,BILLAMOUNT,BILLAMOUNT+10 AS NEWBILL FROM CUSTOMER;
+
+SELECT *FROM CUSTOMER WHERE BILLAMOUNT>5000;
+SELECT *FROM CUSTOMER WHERE CUSTOMERADDRESS='PUNE';
+
+SELECT *FROM CUSTOMER WHERE CUSTOMERADDRESS='PUNE' AND BILLAMOUNT>500;
+
+SELECT *FROM CUSTOMER WHERE CUSTOMERADDRESS='PUNE' OR CUSTOMERADDRESS='BANGALORE' OR CUSTOMERADDRESS='BBSR';
+
+SELECT * FROM CUSTOMER WHERE CUSTOMERADDRESS IN ('PUNE','BBSR','BANGALORE');
+
+SELECT * FROM CUSTOMER WHERE CUSTOMERNAME LIKE '_A_%';
+
+SELECT * FROM CUSTOMER ORDER BY CUSTOMERNAME DESC;
+INSERT INTO CUSTOMER VALUES(105,'MOHAN',NULL,634);
+SELECT * FROM CUSTOMER;
+
+
+INSERT INTO CUSTOMER (CUSTOMERNAME) VALUES('SUBARNA');
+
+SELECT * FROM CUSTOMER WHERE CUSTOMERNAME LIKE '_A_%';
+
+SELECT * FROM CUSTOMER ORDER BY CUSTOMERNAME DESC;
+
+SELECT * FROM CUSTOMER ORDER BY CUSTOMERNAME;
+
+SELECT UPPER(CUSTOMERNAME) FROM CUSTOMER;
+
+
+
+-------------------------------------------------------------------------------------------------------------
+
+
+create table Student
+ (
+    Roll varchar(10),
+    Name varchar(20),
+    Address varchar(20),
+    Marks number
+)
+
+insert into Student values('1','Tufail','Chennai',null);
+
+insert into Student values('2','Amit','Chennai',null);
+
+
+insert into Student values('2','Tarun','Chennai',901);
+SELECT * FROM Student;
+
+SELECT * FROM DUAL;
+
+SELECT UPPER('deloitte') FROM dual;
+
+select initcap(name) from Student;
+select initcap('sandeeep') from dual;
+
+
+select lpad(marks,4,'X') from Student;
+
+
+select rpad(marks,4,'X') from Student;
+
+select concat('Hello','World') from student; 
+
+select substr('helloworld',1,5) from student;
+
+select length('helloworld') from dual;
+
+
+select instr('helloworld','w') from dual;
+
+select trim('h' from 'helloworld') from dual;
+
+------------------------------------------------------------------------------------------------------------------
+
+
+create table empjoin(
+       employeeid integer,
+       employeename varchar2(20),
+       dob date,
+       doj date
+
+)
+
+insert into empjoin values(101,'Raj','08/26/2000','11/14/2019');
+
+
+insert into empjoin values(102,'Rohan','09/26/2000','12/14/2019');
+
+insert into empjoin values(103,'Yash','06/26/2000','10/14/2019');
+
+insert into empjoin values(102,'Uday','05/26/2000','09/14/2019');
+
+
+select * from empjoin;
+
+select employeename,months_between(sysdate,dob)/12 from empjoin;
+
+
+select employeename,months_between(doj,dob)/12 from empjoin;
+
+
+------------------------------------------------------------------------------------------------------------------
+select * from student;
+
+select name,nvl(marks,0) from student;
+
+select nvl2(marks,'present','absent') from  student;
+
+select * from customer;
+
+select nullif(customerid,billamount) from customer;
+
+select roll,coalesce(to_number(roll),marks,10) from student;
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+create table customer100
+(
+   cid integer primary key,
+   cname varchar2(20) not null,
+   caddress varchar2(20) check(caddress in('delhi','mumbai','kolkata')),
+   billamount integer check(billamount>0)
+
+)
+
+insert into customer100 values(101,'sandeep','delhi',20);
+
+
+create table customer200
+(
+   cId integer constraint pkcid primary key,
+   cName varchar2(20) constraint cNameNotNull not null,
+   cAddress varchar2(20) constraint checkAddress check(cAddress in('delhi','mumbai','kolkata')),
+   billAmount integer constraint checkBillaAmt check(billAmount>0)
+
+)
+
+-------------------------------------------------------------------------------------------------------------------
+create table customer300
+(
+   cId integer,
+   cName varchar2(20) constraint cNameNotNull1 not null,
+   cAddress varchar2(20) constraint checkAddress1 check(cAddress in('delhi','mumbai','kolkata')),
+   billAmount integer constraint checkBillaAmt1 check(billAmount>0),
+   email varchar(20),
+   constraint pkcust primary key(cId,email)
+)
+
+
+insert into customer300 values(100,'Sandeep','mumbai',20,'sandeep@gmail.com');
+
+
+insert into customer300 values(100,'Sandeep','mumbai',20,'sandeep2@gmail.com');
+
+
+
+select * from customer300;
+
+
+
+
+
+
+
+
