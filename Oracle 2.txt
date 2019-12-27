@@ -1,0 +1,225 @@
+alter table emp_ add constraint fkemp_dept foreign key(dept_no) references dept(dept_no);
+insert into dept values(100,'HR','Mumbai');
+
+insert into emp_ values(12,'Yati',98000,'Developer',100);
+select * from dept;
+
+select * from emp_;
+------------------------------------------------------------------------------------------------------------------
+create table order_
+(
+ orderId integer primary key,
+ orederDate date,
+ productId integer not null
+)
+
+create table product_
+(
+ productId integer primary key,
+ productName varchar(20) not null,
+ price integer not null,
+ qoh integer not null
+)
+alter table order_ add constraint fkemp_product foreign key(productId) references product_(productId);
+insert into order_ values(100,'09/25/1997',10001);
+
+insert into product_ values(10001,'Juice',98,1);
+select * from order_;
+
+select * from product_;
+
+-------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE SECTION (
+SECTION_ID INTEGER CONSTRAINT S_ID CHECK (SECTION_ID > 0),
+SECTION_NAME CHAR(30) CONSTRAINT S_NAME NOT NULL,
+BOOK_COUNT INTEGER,
+CONSTRAINT SECT_PRIME PRIMARY KEY (SECTION_ID)
+)
+ 
+ 
+CREATE TABLE BOOK
+(
+ISBN INTEGER CONSTRAINT B_ISBN CHECK (ISBN BETWEEN 1 AND 2000),
+TITLE VARCHAR2(200) CONSTRAINT B_TITLE NOT NULL,
+AUTHOR VARCHAR2(50) CONSTRAINT B_AUTH NOT NULL,
+LENT_DATE DATE,
+RETURNED_DATE DATE,
+TIMES_LENT NUMBER(6),
+SECTION_ID NUMBER(3),
+CONSTRAINT BOOK_PRIME PRIMARY KEY (ISBN),
+CONSTRAINT BOOK_SECT FOREIGN KEY (SECTION_ID) REFERENCES SECTION(SECTION_ID)
+ON DELETE CASCADE
+)
+INSERT INTO SECTION values(1,'ABC',78);
+INSERT INTO SECTION values(2,'XYZ',65);
+
+
+insert into BOOK values(1,'java','james',to_date('3/3/09','mm/dd/yy'),to_date('3/4/09','mm/dd/yy'),10,1);
+
+select * from SECTION;
+select * from BOOK;
+
+delete from SECTION where SECTION_ID=1;
+-------------------------------------------------------------------------------------------------------------------
+select constraint_name
+from user_constraints;
+-------------------------------------------------------------------------------------------------------------------
+
+create table Suppliers
+(
+   supplier_id varchar(20),
+   supplier_name varchar(20)
+)
+
+
+create table Orders
+(
+  order_id varchar(20),
+   supplier_id varchar(20),
+   order_date date
+)
+
+
+insert into Suppliers values('10000','IBM')
+insert into Suppliers values('10001','Hewlett Packard')
+insert into Suppliers values('10002','Microsoft')
+insert into Suppliers values('10003','TCS')
+
+insert into Orders values('1','10000',to_date('3/3/09','mm/dd/yy'))
+insert into Orders values('2','10000',to_date('7/5/10','mm/dd/yy'))
+insert into Orders values('3','10001',to_date('12/8/10','mm/dd/yy'))
+insert into Orders values('4','20001',to_date('12/8/10','mm/dd/yy'))
+select * from Suppliers;
+select * from Orders;
+
+
+select supplier_name,order_date
+from SUPPLIERS,ORDERS
+where SUPPLIERS.supplier_id=ORDERS.supplier_id;
+
+select suppliers.supplier_id,supplier_name,order_date
+from SUPPLIERS,ORDERS
+where SUPPLIERS.supplier_id=ORDERS.supplier_id;
+
+
+select s.supplier_id,s.supplier_name,o.order_date
+from SUPPLIERS s,ORDERS o 
+where s.supplier_id=o.supplier_id;
+-------------------------------------------------------------------------------------------------------------------
+//full outer jpon
+select s.supplier_id,s.supplier_name,o.order_date
+from SUPPLIERS s full outer join ORDERS o 
+on s.supplier_id=o.supplier_id;
+
+
+//left outer join
+select s.supplier_id,s.supplier_name,o.order_date
+from SUPPLIERS s,ORDERS o 
+where s.supplier_id=o.supplier_id(+);
+
+
+//right outer join
+select s.supplier_id,s.supplier_name,o.order_date
+from SUPPLIERS s ,ORDERS o 
+where s.supplier_id(+)=o.supplier_id;
+---------------------------------------------------------------------------------------------------------------
+//self join
+select * from employees;
+
+select e1.last_name ||'works for'||e2.last_name
+"Employees and their Managers"
+from employees e1,employees e2 where e1.manager_id=e2.employee_id;
+
+select e1.last_name ||'works for'||e2.last_name
+"Employees and their Managers"
+from employees e1,employees e2 where e1.manager_id=e2.employee_id
+and e1.first_name='Neena';
+-------------------------------------------------------------------------------------------------------------------
+//sub query
+select * from stu;
+select * from fees;
+select name from stu where roll=(select roll from fees where amount=10800);
+update fees set amount=10800 where roll=1;
+select name from stu where roll in (select roll from fees where amount=10800);
+select name from stu where exists (select roll from fees where amount=600);
+
+
+select name from stu where not exists (select roll from fees where amount=600);
+
+select roll,name from Stu where roll>any(select roll from fees);
+
+
+select roll,name from Stu where roll>all(select roll from fees);
+
+
+
+select amount from fees where roll=(select roll from stu where name='Sai'
+
+
+
+
+//corerelated subquery
+// corelated update
+create table emp100
+(
+	empId integer,
+	empName varchar(20),
+	sal integer,
+	deptno integer
+)
+
+
+insert into emp100 values(1,'Tufail',980000,1);
+insert into emp100 values(2,'Ahmed',80000,1);
+insert into emp100 values(3,'Khan',90000,2);
+insert into emp100 values(4,'Tarun',20000,2);
+insert into emp100 values(5,'Neha',950000,2);
+
+
+
+
+update emp100 a set a.sal=(select avg(sal) from emp100 b where a.deptno=b.deptno) 
+where sal<(select avg(sal) from emp100 c where a.deptno=c.deptno);
+
+//corelated delete
+delete from emp100 a where sal=(select max(sal) from emp100 c where a.deptno=c.deptno);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
