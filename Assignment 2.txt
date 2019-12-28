@@ -1,0 +1,110 @@
+Create a table called Employee with the following Columns  and following Constrains :-
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+Assignment 1:
+
+
+
+EmployeeID should not be duplicate
+
+EmployeeName should not be null
+
+EmployeeAddress  :- should not be Newyork, London and Paris
+
+Salary : should be between 20000 and 30000
+
+CompanyAddress should be default as ASV Suntech Park
+
+create table Employee(
+
+    EmployeeID integer constraint empid_ primary key,
+    EmployeeName varchar(20) constraint empname_ not null,
+    EmployeeAddress varchar(20) constraint empadd_ check((EmployeeAddress!='Newyork')or(EmployeeAddress!='London')or(EmployeeAddress!='Paris')), 
+    Salary integer constraint sal_ check(Salary between 20000 and 30000),
+    CompanyAddress varchar2(20) default 'ASV SunTechpark'
+
+)
+
+
+
+------insert two records
+insert into Employee values(100,'John','Mumbai',25000,default);
+
+insert into Employee values(101,'Peter','Delhi',30000,default);
+
+
+
+
+Salary Table
+
+
+
+EmployeeID  :- should not be duplicate
+
+Employee PF  :- should not be negative
+
+Employee HRA :- should not be negative
+
+create table Salary(
+      EmployeeID integer constraint empidsal primary key,
+      EmployeePF integer constraint emppfsal check(EmployeePF>0),
+      EmployeeHRA integer constraint emphrasal check(EmployeeHRA>0)
+)
+
+
+
+The Salary Table must match EmployeeID.
+
+alter table Salary add constraint fkemp foreign key(EmployeeId) references Employee(EmployeeId);
+
+
+
+Assignment 2:
+
+
+
+Create a table with two columns and enforce the integrity.
+
+*Think what will be the required integrity to be enforced on CID , CitizenDOB and CitizenDOD
+
+
+
+Table :- Citizen
+
+
+
+Columns
+
+	CID
+
+	CitizenDOB
+
+	CitizenDOD ( Date of Death )
+
+
+create table citizen(
+
+     dob date,
+     dod date,
+     constraint d1 check(dod>=dob)
+)
+insert into citizen values(sysdate,sysdate+1);
+select * from citizen;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
