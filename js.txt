@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+ var num1=prompt("Enter first number","12");
+ var num2=prompt("Enter first number","12");
+ var result=parseInt(num1)+parseInt(num2);
+ alert("The sum of two numbers are:"+result);
+ </script>
+</head>
+<body>
+<h1>Hello Javascript</h1>
+<h1>Hello HTML</h1>
+</body>
+</html>
+--------------------------------------------------------------------------
+<html>
+<head>
+<script>
+total=0;
+function sum(){
+	y=20;
+    x=10;
+	total=x+y;
+}
+function display(){
+	sum();
+	alert(total);
+	alert(y);
+	alert(x);
+}
+</script>
+</head>
+<body>
+<script>
+display();
+</script>
+</body>
+</html>
+----------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function display(){
+ var num1=prompt("Enter first number","12");
+ var num2=prompt("Enter first number","12");
+ var result=parseInt(num1)+parseInt(num2);
+ alert("The sum of two numbers are:"+result);
+ }
+ function demo(){
+	 var res=confirm("Do you want to continue:");
+	 if (res==true){
+		alert("Ok clicked") 
+	 }
+	 else{
+		 alert("Cancel clicked");
+	 }
+ }
+ </script>
+</head>
+<body>
+<h1>Hello Javascript</h1>
+<h1>Hello HTML</h1>
+<input type="button" value="Go" onclick="display()"><br/>
+<input type="button" value="Demo" onclick="demo()"><br/>
+</body>
+</html>
+------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+function display(){
+ var num1=prompt("Enter first number","12");
+ var num2=prompt("Enter first number","12");
+ var result=parseInt(num1)+parseInt(num2);
+ alert("The sum of two numbers are:"+result);
+ }
+ function demo(){
+	 var res=confirm("Do you want to continue:");
+	 if (res==true){
+		alert("Ok clicked") 
+	 }
+	 else{
+		 alert("Cancel clicked");
+	 }
+ }
+ function displaygreetings(msg){
+	 if(msg==null)
+		 msg="Good Night";
+	 alert(msg);
+ }
+ </script>
+</head>
+<body>
+<h1>Hello Javascript</h1>
+<h1>Hello HTML</h1>
+<input type="button" value="Go" onclick="display()"><br/>
+<input type="button" value="Demo" onclick="demo()"><br/>
+<input type="button" value="Greetings1" onclick="displaygreetings()"><br/>
+<input type="button" value="Greetings2" onclick="displaygreetings('Good Morning')"><br/>
+</body>
+</html>
+---------------------------------------------------------------------
+<html>
+<head>
+<script>
+function display(){
+document.write("h"+"2".sub()+"o");
+document.write("strike".strike());
+}
+</script>
+</head>
+<body>
+<script>
+display();
+</script>
+</body>
+</html>
+-----------------------------------------------------------------------
+<html>
+<head>
+<script>
+function entername(){
+var name=prompt("Enter your name");
+
+var res=confirm("Do you want to con?");
+if(res== true){
+	document.write("Welcome");
+	n=name.split(" ");
+	document.write(n[0][0]+" "+n[1]);
+}
+else{
+	document.write("Thanks");
+	document.write(name);
+}
+}
+</script>
+</head>
+<body>
+<script>
+ entername();
+ </script>
+</body>
+</html>
+---------------------------------------------------------------
+
+
+<html>
+<body>
+<script>
+var today=new Date();
+var lastdate=new Date();
+lastdate.setFullYear(2020,0,1);
+if(lastdate>today){
+	var day=1000*60*60*24;
+	x=(lastdate-today)/day;
+	alert("Number of days left"+x);
+}
+else{
+	alert("time up");
+}
+</script>
+</body>
+</html>
+---------------------------------------------------------------
+<html>
+<body>
+<script>
+var bill=prompt("Enter your bill amount");
+var today=new Date();
+var lastdate=new Date();
+lastdate.setFullYear(2019,11,15);
+if(lastdate<today){
+	var day=1000*60*60*24;
+	x=(today-lastdate)/day;
+	var fine=x*50;
+	var total_bill=parseInt(bill)+parseInt(fine);
+	document.write("The bill amount is:"+total_bill);
+	
+}
+else{
+	document.write("The bill amount is:"+bill);
+}
+</script>
+</body>
+</html>
+-----------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+</head>
+<body>
+<form>
+<table cellspacing="10" cellpadding="10" align="center" border="2">
+<caption><h2>Login Form</h2></caption>
+<tr>
+<td>UserName</td>
+<td><input type="text" name="UserName" id="UserName"></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" name="password" id="password"></td>
+</tr>
+<tr>
+<td><input type="submit" value="Go"></td>
+<td><input type="reset" value="Clear"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+-----------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+<script type="text/javascript">
+function validate(){
+	var uname=document.getElementById("username").value;
+	var pass=document.getElementById("password").value;
+	var confirmpass=document.getElementById("confirmpassword").value;
+	if(uname.length==0){
+		alert("Please enter your username")
+	}
+	else if(pass.length < 6){
+		alert("Enter password or length is short");	
+	}
+	else if(pass==confirmpass){
+		alert("Welcome:"+uname);
+	}
+	
+	else{
+		alert("Password and confrim password should be same");
+	}
+}
+</script>
+</head>
+<body>
+<form>
+<table cellspacing="10" cellpadding="10" align="center" border="2">
+<caption><h2>Login Form</h2></caption>
+<tr>
+<td>UserName</td>
+<td><input type="text" name="username" id="username"></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" name="password" id="password"></td>
+</tr>
+<tr>
+<td>Confirm Password</td>
+<td><input type="confirmpassword" name="confirmpassword" id="confirmpassword"></td>
+</tr>
+<tr>
+<td><input type="submit" value="Go"></td>
+<td><input type="button" value="Click" onclick="validate()"></td>
+<td><input type="reset" value="Clear"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+----------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Form</title>
+<script type="text/javascript">
+function change(){
+	var my1=document.getElementById("myspan1");
+	var errorMessage=document.getElementById("errorMessage");
+	my1.innerHTML="<font color=blue>Welcome</font>"
+   errorMessage.innerHTML="<font color=red>Some error occured</font>"
+}
+function validate(){
+	var uname=document.getElementById("username").value;
+	var pass=document.getElementById("password").value;
+	var confirmpass=document.getElementById("confirmpassword").value;
+	if(uname.length==0){
+		alert("Please enter your username")
+		return false;
+	}
+	else if(pass.length < 6){
+		alert("Enter password or length is short");	
+		return false;
+	}
+	else if(pass==confirmpass){
+		alert("Welcome:"+uname);
+
+	}
+	
+	else{
+		alert("Password and confrim password should be same");
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<form action="about.html" onsubmit="return validate()">
+
+<table cellspacing="10" cellpadding="10" align="center" border="2">
+<caption><h2>Login Form</h2></caption>
+<tr>
+<td>UserName</td>
+<td><input type="text" name="username" id="username"></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" name="password" id="password"></td>
+</tr>
+<tr>
+<td>Confirm Password</td>
+<td><input type="confirmpassword" name="confirmpassword" id="confirmpassword"></td>
+</tr>
+<tr>
+<td><input type="submit" value="Go"></td>
+
+
+<td><input type="reset" value="Clear"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+--------------------------------------------------------------------------------
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Customer Form</title>
+<script type="text/javascript">
+function validate(){
+	var id = document.getElementById("customerId").value;
+	var name = document.getElementById("customerName").value;
+	var addr = document.getElementById("customerAddress").value;
+	var bill = document.getElementById("billAmount").value;
+	var myid = document.getElementById("spanid")
+	var myname = document.getElementById("spanname")
+	var myaddress = document.getElementById("spanaddress")
+	var mybill = document.getElementById("spanbill")
+	
+	if(id.length==5){
+		myid.innerHTML = " ";
+		if(name.length!=0){
+			myname.innerHTML = " ";
+			if(addr=="Mumbai"||addr=="Delhi"||addr=="Pune"){
+				myaddress.innerHTML = " ";
+				if(bill>0){
+					mybill.innerHTML = " ";
+					printDetails()
+				}
+				else
+					mybill.innerHTML = "<font color=red>Please enter a valid Bill amount"
+			}
+			else
+				myaddress.innerHTML = "<font color=red>Please select an address in Mumbai, Delhi or Pune</font>"
+		}
+		else
+			myname.innerHTML = "<font color=red>Please enter your name</font>"
+	}
+	else
+		myid.innerHTML = "<font color=red>Please enter the 5 digit Customer ID</font>"
+
+}
+function printDetails(){
+	var id = document.getElementById("customerId").value;
+	var name = document.getElementById("customerName").value;
+	var addr = document.getElementById("customerAddress").value;
+	var bill = document.getElementById("billAmount").value;
+	
+	var cong = document.getElementById("d0");
+	var res = document.getElementById("da0")
+	var printid = document.getElementById("d1");
+	var printname = document.getElementById("d2");
+	var printaddress = document.getElementById("d3");
+	var printbill = document.getElementById("d4");
+	
+	cong.innerHTML = "<h2>Congrats, Your customer saved successfully</h2>";
+	res.innerHTML = "<h3>Your customer details are ;</h3>";
+	printid.innerHTML = "<h4>Customer ID : "+id+"</h4>";
+	printname.innerHTML = "<h4>Customer Name : "+name+"</h4>";
+	printaddress.innerHTML = "<h4>Customer Address : "+addr+"</h4>";
+	printbill.innerHTML = "<h4>Bill Amount : "+bill+"</h4>";
+}
+</script>
+</head>
+<body>
+	<form>
+		<h1 align="center">Customer Form</h1>
+		<table border=2 cellspacing="10" cellpadding="10" align="center">
+		<tr><td>
+		Customer ID:</td><td> <input type="text" name="customerId" id="customerId">
+		</td><td><span id="spanid"></span></td></tr>
+		<tr><td>
+		Customer Name:</td><td> <input type="text" name ="customerName" id="customerName">
+		</td><td><span id="spanname"></span></td></tr>
+		<tr><td>
+		Customer Address:</td><td> <input type="text" name ="customerAddress" id="customerAddress">
+		</td><td><span id="spanaddress"></span></td></tr>
+		<tr><td>
+		Customer Bill Amount:</td><td> <input type="text" name ="billAmount" id="billAmount">
+		</td><td><span id="spanbill"></span></td></tr>
+		<tr><td  align="center">
+		<input type="button" value="Check" onclick="validate()">
+		<input type="reset" value="Clear">
+		</td>
+		<td><input type="submit" value="Submit">
+		</td></tr>
+</table>
+	</form>
+	<div id="d0"></div>
+	<div id="da0"></div>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+	<div id="d4"></div>
+
+</body>
+</html>
+<td><span id=errorMessagebillamount></span></td>
+</tr>
+<tr>
+<td><input type="submit" value="Save"></td>
+<td><input type="button" value="Check" onclick="validate()"></td>
+<td><input type="reset" value="Clear"></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
