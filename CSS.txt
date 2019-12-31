@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+
+
+
+p{
+  background-color:blue;
+  text-align:center;
+  color:white;
+  text-transform:uppercase;
+  font-family:sans-serif;
+  font-size:20px;
+}
+
+
+h4{
+  background-color: lime;
+  text-decoration: underline;
+}
+
+
+</style>
+<title>Example</title>
+</head>
+<body>
+
+<p>Sachin Tendulkar</p>
+<h4>About</h4>
+
+<p>Sachin Tendulkar</p>
+<h4>About</h4>
+
+<p>Sachin Tendulkar</p>
+<h4>About</h4>
+
+<p>Sachin Tendulkar</p>
+<h4>About</h4>
+
+
+</body>
+</html>
+-------------------------------------------------------------------------------
+
+body{
+background-image: url("image.jpg");
+background-repeat: repeat-y;
+
+}
+-------------------------------------------------------------------------------
+<style type="text/css">
+table{
+  border:dotted;
+  background-color: lime;
+  height:40%;
+  width:50%;
+}
+</style>
+<title>Example</title>
+
+------------------------------------------------------------------------------------
+
+A:link{
+
+color:pink;
+}
+
+
+A:visited{
+
+color:red;
+}
+
+
+A:hover{
+
+color:green;
+}
+---------------------------------------------------------------------------------------
+//external
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css" type="text/css">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>My web App</h1>
+<a href="about.html">Index</a>
+<br/>
+<>
+</body>
+</html>
+
+
+------------------------------------------------------------------------------------
+//class
+p.currentPlayers{
+  background-color:lime;
+  text-align:center;
+  color:white;
+  text-transform:uppercase;
+  font-family:sans-serif;
+  font-size:20px;
+}
+
+p.exPlayers{
+  background-color:black;
+  text-align:center;
+  color:white;
+  text-transform:uppercase;
+  font-family:sans-serif;
+  font-size:20px;
+
+
+
+
+<p class="exPlayers">Sachin Tendulkar</p>
+<h1>About</h1>
+
+<p class="currentPlayers">Virat Sharma</p>
+<h1>About</h1>
+-----------------------------------------------------------------
+
+//ques
+In the web page that you created for a software company, apply different styles using CSS based on following.
+All the links should be underlined and with a blue color.
+All the headings should be in bold, uppercase, center aligned, red color and unique font from the text.
+All the labels in the form should be in times of roman and italics.
+Choose an appropriate color for the entire background for the web page.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
